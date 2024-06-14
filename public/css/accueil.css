@@ -1,0 +1,197 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Gwendolyn&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Gwendolyn:wght@400;700&display=swap");
+.gwendolyn-regular {
+  font-family: "Gwendolyn", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
+
+.gwendolyn-bold {
+  font-family: "Gwendolyn", cursive;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 3rem !important;
+}
+
+.dosis-ul {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.dosis-p {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.logo {
+  width: 130px;
+  height: auto;
+}
+
+.fleurs {
+  width: 50%;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  left: 70%;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background: linear-gradient(135deg, rgb(182, 141, 76) 0%, rgb(193, 158, 103) 34%, rgb(233, 212, 179) 74%, rgb(243, 226, 199) 100%);
+  color: white;
+  padding: 1rem;
+}
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.carousel {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+.carousel .carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel .carousel-item {
+  min-width: 100%;
+  height: 400px;
+  display: none;
+}
+.carousel .carousel-item.active {
+  display: block;
+}
+.carousel .carousel-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.introduction {
+  padding: 2rem;
+}
+.introduction .content {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+.introduction .photos {
+  display: flex;
+  flex-direction: column;
+  max-width: 20%;
+}
+.introduction .photos img {
+  margin-bottom: 1rem;
+  width: 100%;
+  height: auto;
+  width: 100%;
+  height: auto;
+}
+.introduction .photos img.center {
+  margin-left: 160px;
+}
+.introduction .description {
+  padding-left: 30rem;
+  padding-right: 30rem;
+  flex: 1;
+  align-self: flex-start;
+}
+.introduction .description h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.introduction .description p {
+  font-size: 1.2rem;
+  text-align: justify; /* Justifier le texte */
+  /* direction: rtl;  Aligner le texte à droite */
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+.gallery .photo-frame {
+  width: 18%;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border: 2px solid #ccc;
+  background: #d4b88b;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-radius: 10px;
+}
+.gallery .photo-frame img {
+  width: 100%;
+  height: 515px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 1rem;
+}
+.gallery .photo-frame .description-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 90%;
+  margin-top: auto;
+  text-align: left;
+}
+.gallery .photo-frame .description-gallery h2 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: white;
+}
+.gallery .photo-frame .description-gallery .photo-description {
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  margin: 0.5rem 0;
+}
+.gallery .photo-frame .description-gallery .photo-description:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 2300px) {
+  .introduction .description {
+    padding-left: 35rem;
+    padding-right: 35rem;
+  }
+}/*# sourceMappingURL=accueil.css.map */

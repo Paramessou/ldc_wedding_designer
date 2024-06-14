@@ -1,0 +1,295 @@
+// Variables
+$font-stack: Arial, sans-serif;
+$primary-gradient: linear-gradient(135deg, rgba(182,141,76,1) 0%, rgba(193,158,103,1) 34%, rgba(233,212,179,1) 74%, rgba(243,226,199,1) 100%);//linear-gradient(to right, rgba(233,111,145,1) 0%, rgba(248,188,212,1) 25%, rgba(251,212,225,1) 78%, rgba(254,240,245,1) 100%); //#333, #e96f91
+$white-color: white;
+$gray-color: #ccc;
+$beige-color: #d4b88b;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Gwendolyn&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Gwendolyn:wght@400;700&display=swap');
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin responsive-img {
+    width: 100%;
+    height: auto;
+}
+
+// Font text
+.gwendolyn-regular {
+    font-family: "Gwendolyn", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+}
+
+.gwendolyn-bold {
+    font-family: "Gwendolyn", cursive;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3rem !important;
+}
+
+
+.dosis-ul {
+    font-family: "Dosis", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+.dosis-p {
+    font-family: "Dosis", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+// Gestion logo
+.logo {
+    width: 130px;
+    height: auto;
+}
+
+// Gestion fleurs sur background
+.fleurs {
+    width: 50%; //largeur des fleurs
+    height: auto; //hauteur des fleurs
+    position: fixed; //position fixe pour que les fleurs restent à la même place même pendant le scroll
+    top: 50%; //placer les fleurs à 50% du haut de la page
+    left: 70%; //placer les fleurs à 70% de la gauche de la page
+    transform: translateY(-50%); //déplacer les fleurs de 50% de leur hauteur vers le haut pour les centrer verticalement
+    z-index: -1;
+}
+
+// Global Styles
+body {
+    font-family: $font-stack;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Header Styles
+header {
+    background: $primary-gradient;
+    color: $white-color;
+    padding: 1rem;
+
+    nav {
+        @include flex-center;
+        flex-direction: row;
+
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+
+            li {
+                a {
+                    color: $white-color;
+                    text-decoration: none;
+                    // padding: 1rem;
+                }
+
+                // &logo-container {
+                //     display: flex; // Permet de centrer le logo
+                //     flex: 1; // Prend tout l'espace disponible
+                //     justify-content: center; // Centre le logo horizontalement
+                //     align-items: center; // Centre le logo verticalement
+                // }
+            }
+        }
+    }
+}
+
+// Carousel Styles
+.carousel {
+    width: 100%;
+    height: 400px;
+    overflow: hidden; // cache les éléments qui dépassent de la largeur ou de la hauteur du conteneur
+    position: relative; // position relative pour les éléments enfants signifie que les éléments enfants peuvent être positionnés par rapport à ce conteneur
+
+    .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+        min-width: 100%;
+        height: 400px;
+        display: none; // Hide all items by default
+    }
+
+    .carousel-item.active {
+        display: block; // Show only the active item
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// Introduction Styles
+.introduction {
+    padding: 2rem;
+
+    .content {
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .photos {
+        display: flex;
+        flex-direction: column;
+        max-width: 20%;
+
+        img {
+            margin-bottom: 1rem;
+            width: 100%;
+            height: auto;
+            @include responsive-img;
+
+            &.center {
+                margin-left: 160px;
+            }
+        }
+    }
+
+    .description {
+        padding-left: 30rem;
+        padding-right: 30rem;
+        // text-align: right;
+        flex: 1;
+        align-self: flex-start;
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            text-align: justify; /* Justifier le texte */
+            /* direction: rtl;  Aligner le texte à droite */
+        }
+    }
+}
+
+// Gallery Styles
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    flex-wrap: wrap; // Permet d'avoir plusieurs lignes de photos si besoin
+
+    .photo-frame {
+        width: 18%;
+        margin-bottom: 2rem;
+        overflow: hidden;
+        border: 2px solid $gray-color; // Ajoute un cadre autour de chaque bloc
+        background: $beige-color;
+        text-align: center; // Centre le texte en dessous des images
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        border-radius: 10px; // Arrondi les coins du cadre
+
+        img {
+            width: 100%;
+            height: 515px; // Taille fixe pour toutes les images
+            object-fit: cover; // Rognement automatique des images
+            margin-bottom: 1rem;
+        }
+
+        .description-gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; // Aligner les liens à gauche
+            justify-content: flex-end; // Pousser les liens vers le bas du cadre
+            width: 90%; // Prendre toute la largeur disponible
+            margin-top: auto; // Pousser les liens vers le bas du cadre
+            text-align: left; // Aligner le texte à gauche
+
+            h2 {
+                text-align: center; // Centrer le titre
+                width: 100%; // Prendre toute la largeur disponible
+                margin-bottom: 1rem;
+                color: $white-color;
+            }
+
+            .photo-description {
+                font-size: 1rem;
+                color: $white-color;
+                text-decoration: none;
+                margin: 0.5rem 0; // Espacement entre les liens
+
+                &:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 2300px) {
+    .introduction {
+        .description {
+            padding-left: 35rem;
+            padding-right: 35rem;
+        }
+    }
+    
+}
+
+
+
+// // Gestion animation vidéo arrière-plan
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+// }
+
+// body, html {
+//     width: 100%;
+//     height: 100%;
+//     overflow: auto; /* Assure que la vidéo couvre tout l'écran */
+// }
+
+// .video {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//     z-index: -1; /* Place the video in the background */
+//     pointer-events: none; /* Empêche les interactions avec la vidéo */
+// }
+
+
+// // Gestion tâches d'encre background
+// #inkCanvas {
+//     position: absolute;
+//     top: 0px;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     z-index: -1;
+//     pointer-events: none; /* Empêche les interactions avec le canevas */
+// }
