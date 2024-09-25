@@ -126,11 +126,11 @@ header {
     .carousel-item {
         min-width: 100%;
         height: 400px;
-        display: none; // Hide all items by default
+        display: none; // Cache les éléments du carousel par défaut
     }
 
     .carousel-item.active {
-        display: block; // Show only the active item
+        display: block; // Montre l'élément actif du carousel
     }
 
     .carousel-item img {
